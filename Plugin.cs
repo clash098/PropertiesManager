@@ -1,4 +1,4 @@
-﻿using BepInEx;
+using BepInEx;
 using BepInEx.Configuration;
 using ComputerInterface.Behaviours;
 using ComputerInterface.Interfaces;
