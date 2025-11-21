@@ -92,21 +92,23 @@ namespace PropertiesManager
             commandHandler.AddCommand(new Command("clearprops", null, args =>
             {
                 var localPlayer = PhotonNetwork.LocalPlayer;
-
                 if (localPlayer.CustomProperties.Count == 0)
                 {
                     return "You have no properties to clear!";
                 }
-
+                
                 var propsToRemove = new Hashtable();
+                
                 foreach (var key in localPlayer.CustomProperties.Keys)
                 {
-                    propsToRemove[key] = null;
+                    if ((string)key != "didTutorial")
+                    {
+                        propsToRemove[key] = null;
+                    }
                 }
-
+                
                 localPlayer.SetCustomProperties(propsToRemove);
-
-                return $"Cleared {propsToRemove.Count} properties!";
+                return "Properties cleared!";
             }));
 
             commandHandler.AddCommand(new Command("togglepropnuke", null, args =>
