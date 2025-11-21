@@ -52,11 +52,6 @@ namespace PropertiesManager
             
             commandHandler.AddCommand(new Command("myprops", null, args =>
             {
-                if (!PhotonNetwork.InRoom)
-                {
-                    return "You're not currently in a room!";
-                }
-
                 var localPlayer = PhotonNetwork.LocalPlayer;
                 var stringBuilder = new StringBuilder();
     
@@ -96,11 +91,6 @@ namespace PropertiesManager
             
             commandHandler.AddCommand(new Command("clearprops", null, args =>
             {
-                if (!PhotonNetwork.InRoom)
-                {
-                    return "Not in a room!";
-                }
-
                 var localPlayer = PhotonNetwork.LocalPlayer;
 
                 if (localPlayer.CustomProperties.Count == 0)
@@ -133,4 +123,5 @@ namespace PropertiesManager
             }));
         }
     }
+
 }
